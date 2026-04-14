@@ -92,7 +92,7 @@ document.querySelectorAll('.portfolio__filter').forEach(btn => {
 
 // ===== SCROLL REVEAL =====
 const revealElements = document.querySelectorAll(
-  '.service-card, .portfolio__item, .differential-card, .testimonial-card, .process__step, .faq__item, .about__content, .about__image-wrapper, .contact__info, .contact__form-wrapper'
+  '.service-card, .portfolio__item, .differential-card, .testimonial-card, .process__step, .faq__item, .about__content, .about__image-wrapper, .contact__info'
 );
 
 revealElements.forEach(el => el.classList.add('reveal'));
@@ -120,67 +120,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// ===== FORM SUBMISSION (Formspree) =====
-const form = document.getElementById('contactForm');
-if (form) {
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+// ===== WHATSAPP FLOAT MENU =====
+const waFloat = document.getElementById('waFloat');
+const waBtn = document.getElementById('waBtn');
 
-    const btn = form.querySelector('button[type="submit"]');
-    const originalText = btn.innerHTML;
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-    btn.disabled = true;
+if (waBtn) {
+  waBtn.addEventListener('click', () => {
+    waFloat.classList.toggle('open');
+  });
 
-    const data = new FormData(form);
-
-    try {
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (response.ok) {
-        btn.innerHTML = '<i class="fas fa-check"></i> Enviado com sucesso!';
-        btn.style.background = '#10B981';
-        btn.style.borderColor = '#10B981';
-        form.reset();
-        setTimeout(() => {
-          btn.innerHTML = originalText;
-          btn.style.background = '';
-          btn.style.borderColor = '';
-          btn.disabled = false;
-        }, 4000);
-      } else {
-        throw new Error('Erro no envio');
-      }
-    } catch {
-      btn.innerHTML = '<i class="fas fa-exclamation-circle"></i> Erro ao enviar. Tente novamente.';
-      btn.style.background = '#EF4444';
-      btn.style.borderColor = '#EF4444';
-      setTimeout(() => {
-        btn.innerHTML = originalText;
-        btn.style.background = '';
-        btn.style.borderColor = '';
-        btn.disabled = false;
-      }, 3000);
+  document.addEventListener('click', (e) => {
+    if (!waFloat.contains(e.target)) {
+      waFloat.classList.remove('open');
     }
   });
 }
 
-// ===== PHONE MASK =====
-const phoneInput = document.getElementById('phone');
-if (phoneInput) {
-  phoneInput.addEventListener('input', (e) => {
-    let value = e.target.value.replace(/\D/g, '');
-    if (value.length > 11) value = value.slice(0, 11);
-    if (value.length > 6) {
-      value = `(${value.slice(0,2)}) ${value.slice(2,7)}-${value.slice(7)}`;
-    } else if (value.length > 2) {
-      value = `(${value.slice(0,2)}) ${value.slice(2)}`;
-    } else if (value.length > 0) {
-      value = `(${value}`;
-    }
-    e.target.value = value;
-  });
-}

@@ -498,11 +498,11 @@
 
   <!-- Contact Section -->
   <section class="contact" id="contato">
-    <div class="container contact__container">
-      <div class="contact__info">
+    <div class="container contact__container contact__container--centered">
+      <div class="contact__info contact__info--full">
         <span class="section-label">Contato</span>
         <h2 class="section-title">Solicite seu <span class="text-accent">orçamento</span> agora</h2>
-        <p class="contact__text">Preencha o formulário e nossa equipe entrará em contato em até 24 horas para discutir seu projeto.</p>
+        <p class="contact__text">Entre em contato com nossa equipe. Respondemos em até 24 horas com uma proposta personalizada para o seu projeto.</p>
         <div class="contact__details">
           <div class="contact__detail">
             <div class="contact__detail-icon">
@@ -510,7 +510,8 @@
             </div>
             <div>
               <strong>Telefone</strong>
-              <span>(11) 9999-9999</span>
+              <span>(62) 98133-3974</span>
+              <span>(62) 99136-4066</span>
             </div>
           </div>
           <div class="contact__detail">
@@ -519,7 +520,7 @@
             </div>
             <div>
               <strong>WhatsApp</strong>
-              <span>(11) 99999-9999</span>
+              <span>(62) 98133-3974 / (62) 99136-4066</span>
             </div>
           </div>
           <div class="contact__detail">
@@ -541,49 +542,38 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="contact__form-wrapper">
-        <!-- FORMSPREE: Substitua YOUR_FORM_ID pelo seu ID do formspree.io -->
-        <form class="contact__form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-          <h3 class="contact__form-title">Orçamento Gratuito</h3>
-          <div class="form-group">
-            <input type="text" id="name" name="name" placeholder="Seu nome completo" required>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
-            </div>
-            <div class="form-group">
-              <input type="tel" id="phone" name="phone" placeholder="Seu telefone" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <select id="service" name="service" required>
-              <option value="" disabled selected>Tipo de serviço</option>
-              <option value="galpao">Galpão Industrial</option>
-              <option value="comercial">Construção Comercial</option>
-              <option value="cobertura">Cobertura Metálica</option>
-              <option value="projeto">Projeto Estrutural</option>
-              <option value="reforma">Reforma / Ampliação</option>
-              <option value="outro">Outro</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <textarea id="message" name="message" rows="4" placeholder="Descreva seu projeto (área, localização, prazo desejado...)" required></textarea>
-          </div>
-          <button type="submit" class="btn btn--primary btn--full">
-            <i class="fas fa-paper-plane"></i> Enviar Solicitação
-          </button>
-          <p class="contact__form-note"><i class="fas fa-lock"></i> Seus dados estão seguros. Não enviamos spam.</p>
-        </form>
+        <div class="contact__cta">
+          <a href="https://wa.me/5562981333974?text=Olá! Gostaria de solicitar um orçamento." class="btn btn--whatsapp btn--lg" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> (62) 98133-3974
+          </a>
+          <a href="https://wa.me/5562991364066?text=Olá! Gostaria de solicitar um orçamento." class="btn btn--whatsapp btn--lg" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> (62) 99136-4066
+          </a>
+          <a href="mailto:contato@yconconstrucoes.com.br" class="btn btn--outline btn--lg">
+            <i class="fas fa-envelope"></i> Enviar E-mail
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- WhatsApp Float -->
-  <a href="https://wa.me/5511999999999?text=Olá! Gostaria de solicitar um orçamento." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Fale conosco pelo WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+  <div class="whatsapp-float-wrapper" id="waFloat">
+    <div class="whatsapp-float-menu" id="waMenu">
+      <span class="whatsapp-float-label">Fale conosco</span>
+      <a href="https://wa.me/5562981333974?text=Olá! Gostaria de solicitar um orçamento." class="whatsapp-float-option" target="_blank" rel="noopener">
+        <i class="fab fa-whatsapp"></i>
+        <span>(62) 98133-3974</span>
+      </a>
+      <a href="https://wa.me/5562991364066?text=Olá! Gostaria de solicitar um orçamento." class="whatsapp-float-option" target="_blank" rel="noopener">
+        <i class="fab fa-whatsapp"></i>
+        <span>(62) 99136-4066</span>
+      </a>
+    </div>
+    <button class="whatsapp-float" id="waBtn" aria-label="Fale conosco pelo WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </button>
+  </div>
 
   <!-- Footer -->
   <footer class="footer">
@@ -594,7 +584,7 @@
           <p>Referência em construção metálica. Qualidade, prazo e segurança em cada projeto.</p>
           <div class="footer__social">
             <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/ycon.construcoes/" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
             <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
           </div>
@@ -616,7 +606,7 @@
         <div class="footer__links">
           <h4>Contato</h4>
           <a href="tel:+551199999999"><i class="fas fa-phone-alt"></i> (11) 9999-9999</a>
-          <a href="mailto:contato@yconconstrucoes.com.br"><i class="fas fa-envelope"></i> contato@ycon.com.br</a>
+          <a href="mailto:contato@yconconstrucoes.com.br"><i class="fas fa-envelope"></i> contato@yconconstrucoes.com.br</a>
           <a href="#"><i class="fas fa-map-marker-alt"></i> São Paulo, SP</a>
         </div>
       </div>
