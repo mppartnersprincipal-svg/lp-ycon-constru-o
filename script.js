@@ -115,6 +115,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const target = document.querySelector(targetId);
     if (target) {
       e.preventDefault();
+      history.pushState(null, '', targetId);
       target.scrollIntoView({ behavior: 'smooth' });
     }
   });
