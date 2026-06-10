@@ -121,6 +121,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+// ===== AUTOPLAY VIDEO ON SCROLL =====
+const aboutVideo = document.querySelector('.about__video-player');
+if (aboutVideo) {
+  const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        aboutVideo.play().catch(() => {});
+      } else {
+        aboutVideo.pause();
+      }
+    });
+  }, { threshold: 0.5 });
+
+  videoObserver.observe(aboutVideo);
+}
+
 // ===== WHATSAPP FLOAT MENU =====
 const waFloat = document.getElementById('waFloat');
 const waBtn = document.getElementById('waBtn');
